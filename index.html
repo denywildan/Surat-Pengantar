@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Surat Pengantar PDF</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/vfs_fonts.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>✅ Surat Pengantar Anda Sedang Dibuat...</h1>
+  <p>File PDF akan diunduh secara otomatis. Jika tidak, <a href="#" onclick="generatePDF()">klik di sini</a>.</p>
+
+  <script>
+    function generatePDF() {
+      var docDefinition = {
+        content: [
+          { text: 'SURAT PENGANTAR', style: 'header', alignment: 'center' },
+          { text: '\nNomor: 123/SP/2025\n\n' },
+          { text: 'Yang bertanda tangan di bawah ini:\n\n' },
+          { text: 'Nama: John Doe\nJabatan: Manajer Operasional\n\n' },
+          { text: 'Dengan ini mengantar dokumen penting terkait permohonan izin usaha.\n\n' },
+          { text: 'Demikian surat ini dibuat untuk digunakan sebagaimana mestinya.\n\n' },
+          { text: 'Purwakarta, 5 Agustus 2025\n\n' },
+          { text: 'John Doe\n' }
+        ],
+        styles: {
+          header: {
+            fontSize: 18,
+            bold: true
+          }
+        }
+      };
+      pdfMake.createPdf(docDefinition).download('Surat-Pengantar.pdf');
+    }
+
+    window.onload = generatePDF;
+  </script>
+</body>
+</html>
